@@ -160,17 +160,21 @@ def run_no_threads(tur, log, main_turtle):
     tur.play_commands(main_turtle)
     log.stop_timer('Total drawing time')
     tur.clear()
-def thread_square(shape):
-    draw_squares(shape)
+def thread_square(shape, lock):
+    with lock:
+        draw_squares(shape)
 
-def thread_circle(shape):
-    draw_circles(shape)
+def thread_circle(shape, lock):
+    with lock:
+        draw_circles(shape)
 
-def thread_triangle(shape):
-    draw_triangles(shape)
+def thread_triangle(shape, lock):
+    with lock:
+        draw_triangles(shape)
 
-def thread_rectangle(shape):
-    draw_rectangles(shape)
+def thread_rectangle(shape, lock):
+    with lock:
+        draw_rectangles(shape)
 
 def run_with_threads(tur, log, main_turtle):
     """Draw different shapes using threads"""
@@ -186,21 +190,20 @@ def run_with_threads(tur, log, main_turtle):
     # TODO - Start adding your code here.
     # You need to use 4 threads where each thread concurrently drawing one type of shape.
     # You are free to change any functions in this code except those we marked DO NOT CHANGE.
-    t1=threading.Thread(target=thread_square, args=(tur,))
-    t2=threading.Thread(target=thread_rectangle, args=(tur,))
-    t3=threading.Thread(target=thread_triangle, args=(tur,))
-    t4=threading.Thread(target=thread_circle, args=(tur,))
+    lock=threading.Lock()
+    t1=threading.Thread(target=thread_square, args=(tur,lock))
+    t2=threading.Thread(target=thread_rectangle, args=(tur,lock))
+    t3=threading.Thread(target=thread_triangle, args=(tur,lock))
+    t4=threading.Thread(target=thread_circle, args=(tur,lock))
 
     t1.start()
-    t1.join()
-
     t2.start()
-    t2.join()
-    
     t3.start()
-    t3.join()
-
     t4.start()
+
+    t1.join()
+    t2.join()
+    t3.join()
     t4.join()
 
 
