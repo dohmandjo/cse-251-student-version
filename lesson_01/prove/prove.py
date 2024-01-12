@@ -2,7 +2,7 @@
 Course: CSE 251 
 Lesson: L01 Prove
 File:   prove.py
-Author: <Add name here>
+Author: <Joel Doh>
 
 Purpose: Drawing with Python Turtle
 
@@ -160,6 +160,12 @@ def run_no_threads(tur, log, main_turtle):
     tur.play_commands(main_turtle)
     log.stop_timer('Total drawing time')
     tur.clear()
+
+# def thread_function(lock):
+#     with lock:
+    
+#         pass
+
 def thread_square(shape, lock):
     with lock:
         draw_squares(shape)
