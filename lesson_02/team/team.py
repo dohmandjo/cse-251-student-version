@@ -24,8 +24,19 @@ from cse251 import *
 
 class Request_thread(threading.Thread):
     # TODO - Add code to make an API call and return the results
-    # https://realpython.com/python-requests/
-    pass
+    def __init__(self,url, response):
+        threading.Thread.__init__(self)
+        self.url=url
+        self.response={}
+
+    def run(self):
+        response= requests.get('https://realpython.com/python-requests/')
+        if response==200:
+            data=response.json()
+            print(data)
+        else:
+            print(f'response={response}')
+
 
 class Deck:
 
