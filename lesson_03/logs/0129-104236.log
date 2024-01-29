@@ -1,0 +1,13 @@
+10:44:05| Time to process with 1 core(s): 89.64052524999715
+10:50:48| Time to process with 2 core(s): 402.2264692919998
+10:52:50| Time to process with 3 core(s): 122.76187679100258
+10:53:15| Time to process with 4 core(s): 24.8624678749984
+10:53:38| Time to process with 5 core(s): 23.046618000000308
+10:54:00| Time to process with 6 core(s): 21.989379833001294
+10:54:22| Time to process with 7 core(s): 21.2279781670004
+10:54:42| Time to process with 8 core(s): 20.160314583998115
+10:55:02| Time to process with 9 core(s): 20.284552707998955
+10:55:23| Time to process with 10 core(s): 20.94350124999619
+10:55:43| Time to process with 11 core(s): 19.750586499998462
+10:56:03| Time to process with 12 core(s): 20.316777125000954
+10:56:03| Total Time for ALL processing: 807.2212304169952
