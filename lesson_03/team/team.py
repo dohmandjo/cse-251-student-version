@@ -148,6 +148,10 @@ def main():
     board = Board()
     board.display()
 
+    with mp.Pool(4) as p:
+
+        p.map(board._word_at_this_location, board[x][y])
+
     start = time.perf_counter()
     for word in words:
         if not board.find_word(word):
